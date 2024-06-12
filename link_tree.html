@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share This Site</title>
+    <style>
+        .share-button {
+            display: inline-block;
+            margin: 10px;
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            background-color: transparent;
+        }
+        .share-button img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Share This Site</h1>
+    <button class="share-button" onclick="shareWhatsApp()">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </button>
+    <button class="share-button" onclick="shareFacebook()">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+    </button>
+    <button class="share-button" onclick="shareTwitter()">
+        <img src="https://upload.wikimedia.org/wikipedia/en/6/60/Twitter_Logo_as_of_2021.svg" alt="Twitter">
+    </button>
+    <button class="share-button" onclick="shareSms()">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Message_App_Icon.png" alt="SMS">
+    </button>
+
+    <script>
+        const url = encodeURIComponent('http://lawgical.app');
+        const text = encodeURIComponent('Check out this awesome website!');
+
+        function shareWhatsApp() {
+            window.open(`https://api.whatsapp.com/send?text=${text}%20${url}`, '_blank');
+        }
+
+        function shareFacebook() {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank');
+        }
+
+        function shareTwitter() {
+            window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+        }
+
+        function shareSms() {
+            window.open(`sms:&body=${text}%20${url}`, '_blank');
+        }
+    </script>
+</body>
+</html>
